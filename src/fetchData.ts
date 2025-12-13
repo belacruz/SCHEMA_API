@@ -5,7 +5,7 @@ export async function fetchData<T>(url: string): Promise<T[] | null> {
     const json = await response.json();
     return json;
   } catch (error) {
-    console.error(error);
+    if (error instanceof Error) console.error(`fetchData retornou um erro: ${error.message} `);
     return null;
   }
 }

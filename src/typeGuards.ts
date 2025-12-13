@@ -15,16 +15,14 @@ export function checkSchemaCompatibility(
   data: Record<string, unknown>,
   schema: Record<string, unknown> = SCHEMA_API,
 ): boolean {
-  const keysSCHEMA = Object.keys(schema).sort();
-  const keysData = Object.keys(data).sort();
+  const keysSCHEMA = Object.keys(schema);
+  const keysData = Object.keys(data);
 
   if (keysData.length !== keysSCHEMA.length) return false;
 
-  const keysMatch = keysSCHEMA.every((key, index) => {
-    return key === keysData[index];
-  });
-
-  if (!keysMatch) return false;
+  for (const key of keysSCHEMA) {
+    if (!(key in data)) return false;
+  }
 
   for (const key of keysSCHEMA) {
     const rule = schema[key];
