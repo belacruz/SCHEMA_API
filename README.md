@@ -1,5 +1,4 @@
 # SCHEMA_API
-# SCHEMA_API
 
 Projeto em **TypeScript** focado em validação, normalização e processamento de dados vindos de uma API, seguindo uma abordagem **data-driven** e defensiva.
 
