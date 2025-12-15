@@ -57,7 +57,7 @@ A simplicidade da estrutura é intencional, já que o escopo do projeto é reduz
 
 ---
 
-## 📊 Estatísticas Calculadas
+## Estatísticas Calculadas
 
 * Valor total das transações
 * Quantidade por forma de pagamento
