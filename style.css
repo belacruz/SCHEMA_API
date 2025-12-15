@@ -28,6 +28,8 @@ h2 {
   margin-bottom: 0.1rem;
 }
 
-div {
+div,
+p {
   border-top: 3px solid ghostwhite;
+  font-size: 1.25rem;
 }
