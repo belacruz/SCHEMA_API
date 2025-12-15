@@ -54,7 +54,7 @@ A simplicidade da estrutura é intencional, já que o escopo do projeto é reduz
 * **Normalização explícita** antes do uso
 * **Classes desacopladas** (estatísticas não conhecem API nem DOM)
 * **TypeScript como ferramenta de segurança**, não apenas autocomplete
-* | Conceito | Abordagem de Engenharia (O Valor) |
+| Conceito | Abordagem de Engenharia (O Valor) |
 | :--- | :--- |
 | **Type Guards** | **Type Guards em Runtime** para *narrowing* e validação de contratos de API. |
 | **Schema como fonte de verdade** | **Schema como Single Source of Truth** usando Mapped e Conditional Types. |
