@@ -54,6 +54,14 @@ A simplicidade da estrutura é intencional, já que o escopo do projeto é reduz
 * **Normalização explícita** antes do uso
 * **Classes desacopladas** (estatísticas não conhecem API nem DOM)
 * **TypeScript como ferramenta de segurança**, não apenas autocomplete
+* | Conceito | Abordagem de Engenharia (O Valor) |
+| :--- | :--- |
+| **Type Guards** | **Type Guards em Runtime** para *narrowing* e validação de contratos de API. |
+| **Schema como fonte de verdade** | **Schema como Single Source of Truth** usando Mapped e Conditional Types. |
+| **Normalização explícita** | **Normalização Explícita** (`transacaoAPINorm`) de dados (ex: strings de moeda/data para `number`/`Date`). |
+| **Classes desacopladas** | **Encapsulamento Lógico** em Classes (`Estatisticas`) com métodos privados. |
+| **TypeScript** | **TypeScript como Garantia de Integridade de Dados** e prevenção de erros em *compile-time*. |
+
 
 ---
 
@@ -75,19 +83,6 @@ A simplicidade da estrutura é intencional, já que o escopo do projeto é reduz
 * Para evitar confiar cegamente na API externa
 
 Em um projeto maior ou comercial, bibliotecas seriam uma opção válida. Aqui, o foco é **clareza e domínio técnico**.
-
----
-## Principais Conceitos de Engenharia Aplicados
-
-## 🧩 Principais Conceitos Usados
-
-| Conceito | Abordagem de Engenharia (O Valor) |
-| :--- | :--- |
-| **Type Guards** | **Type Guards em Runtime** para *narrowing* e validação de contratos de API. |
-| **Schema como fonte de verdade** | **Schema como Single Source of Truth** usando Mapped e Conditional Types. |
-| **Normalização explícita** | **Normalização Explícita** (`transacaoAPINorm`) de dados (ex: strings de moeda/data para `number`/`Date`). |
-| **Classes desacopladas** | **Encapsulamento Lógico** em Classes (`Estatisticas`) com métodos privados. |
-| **TypeScript** | **TypeScript como Garantia de Integridade de Dados** e prevenção de erros em *compile-time*. |
 
 ---
 
