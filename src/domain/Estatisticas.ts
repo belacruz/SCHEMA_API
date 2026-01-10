@@ -42,13 +42,13 @@ export default class Estatisticas {
 
   private setSemana() {
     const semana: Record<string, number> = {
-      Domingo: 0,
+      "Domingo": 0,
       "Segunda-Feira": 0,
       "Terça-Feira": 0,
       "Quarta-Feira": 0,
       "Quinta-Feira": 0,
       "Sexta-Feira": 0,
-      Sábado: 0,
+      "Sábado": 0,
     };
     const keys = Object.keys(semana);
     for (const transacao of this.transacoes) {
