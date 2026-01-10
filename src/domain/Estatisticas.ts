@@ -48,7 +48,7 @@ export default class Estatisticas {
       "Quarta-Feira": 0,
       "Quinta-Feira": 0,
       "Sexta-Feira": 0,
-      Sabado: 0,
+      Sábado: 0,
     };
     const keys = Object.keys(semana);
     for (const transacao of this.transacoes) {
