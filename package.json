@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier --write src/",
+    "format:check": "prettier --check src/"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
@@ -19,5 +23,11 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.48.1",
     "vite": "^7.2.4"
+  },
+  "dependencies": {
+    "@schemini/core": "^2.0.0",
+    "@schemini/locale": "^2.0.0",
+    "lit-html": "^3.3.2",
+    "sass": "^1.97.2"
   }
 }

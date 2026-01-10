@@ -1,0 +1,19 @@
+@use "variables" as *;
+
+table {
+  border-spacing: 0;
+  text-align: left;
+
+  th {
+    font-size: $font-size-xl;
+  }
+
+  td,
+  th {
+    padding: $spacing-sm $spacing-md;
+  }
+
+  tr:nth-child(even) {
+    background-color: $color-bg-alt;
+  }
+}
