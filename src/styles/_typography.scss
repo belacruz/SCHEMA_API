@@ -1,0 +1,19 @@
+@use "variables" as *;
+
+h2,
+p {
+  margin-left: $spacing-md;
+}
+
+h2 {
+  border-top: $border-width-lg solid $color-bg-alt;
+  padding-top: $spacing-md;
+  font-size: $font-size-xxl;
+  margin-bottom: 0.1rem;
+}
+
+div,
+p {
+  border-top: $border-width-sm solid $color-bg-alt;
+  font-size: $font-size-lg;
+}
