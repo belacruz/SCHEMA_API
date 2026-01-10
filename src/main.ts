@@ -1,6 +1,6 @@
 import { fetchTransacoes } from "./services/api.ts";
 import { renderTabela, renderEstatisticas } from "./ui/render.ts";
-import "./styles/main.scss";
+import "./styles/main.css";
 
 async function main() {
   try {

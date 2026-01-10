@@ -1,31 +1,171 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>origamid</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Painel de Transacoes</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
   </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 font-sans antialiased transition-colors duration-300"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <!-- Header -->
+      <header
+        class="mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+      >
+        <div>
+          <h1
+            class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white"
+          >
+            Painel de Transacoes Financeiras
+          </h1>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+            Visao geral de faturamento e status de pagamentos.
+          </p>
+        </div>
+        <div class="flex items-center gap-3">
+          <span
+            class="text-xs font-mono text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded"
+            >v2.4.0</span
+          >
+          <button
+            class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition-colors"
+          >
+            <span class="material-icons-round text-lg">notifications</span>
+          </button>
+        </div>
+      </header>
 
-  <body>
-    <h2>Estatísticas</h2>
-    <p id="total">Total: <span id="totalSpan"></span></p>
-    <div id="pagamento"></div>
-    <div id="status"></div>
-    <p>Dia com mais vendas: <span id="dia"></span></p>
-    <h2>Dados</h2>
-    <table id="tabelaTransacoes">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Email</th>
-          <th>Compra</th>
-          <th>Pagamento</th>
-          <th>Status</th>
-          <th>Data Do Pagamento</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
+      <!-- Stats Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <!-- Total Card (spans 2 cols) -->
+        <div
+          id="totalCard"
+          class="col-span-1 md:col-span-2 bg-surface-light dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-soft flex flex-col justify-between"
+        >
+          <div>
+            <span class="text-sm font-medium text-slate-500 dark:text-slate-400"
+              >Valor Total Recebido</span
+            >
+            <div class="flex items-baseline gap-2 mt-2">
+              <span
+                id="totalValue"
+                class="text-4xl font-semibold tracking-tight text-slate-900 dark:text-white"
+                >R$ 0,00</span
+              >
+            </div>
+          </div>
+          <div class="mt-6 flex gap-1">
+            <div
+              class="h-1 flex-1 bg-emerald-400 rounded-full opacity-80"
+            ></div>
+            <div
+              class="h-1 flex-1 bg-emerald-400 rounded-full opacity-60"
+            ></div>
+            <div
+              class="h-1 flex-1 bg-emerald-400 rounded-full opacity-40"
+            ></div>
+            <div
+              class="h-1 flex-1 bg-emerald-400 rounded-full opacity-20"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Payment Method Cards Container -->
+        <div id="pagamentoCards" class="contents"></div>
+      </div>
+
+      <!-- Status Section Title -->
+      <h2 class="text-lg font-medium text-slate-900 dark:text-white mb-4 px-1">
+        Status das Transacoes
+      </h2>
+
+      <!-- Status Cards Grid -->
+      <div
+        id="statusCards"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10"
+      ></div>
+
+      <!-- Transaction Table -->
+      <div
+        class="bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-slate-800 rounded-xl shadow-soft overflow-hidden"
+      >
+        <div class="overflow-x-auto">
+          <table id="tabelaTransacoes" class="w-full text-left border-collapse">
+            <thead>
+              <tr
+                class="bg-white dark:bg-zinc-900 border-b border-slate-200 dark:border-slate-800"
+              >
+                <th
+                  class="py-5 px-6 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400"
+                >
+                  Nome
+                </th>
+                <th
+                  class="py-5 px-6 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400"
+                >
+                  Email
+                </th>
+                <th
+                  class="py-5 px-6 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400"
+                >
+                  Compra (BRL)
+                </th>
+                <th
+                  class="py-5 px-6 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400"
+                >
+                  Pagamento
+                </th>
+                <th
+                  class="py-5 px-6 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 w-48"
+                >
+                  Status
+                </th>
+                <th
+                  class="py-5 px-6 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 text-right"
+                >
+                  Data
+                </th>
+              </tr>
+            </thead>
+            <tbody id="tabelaBody" class="text-sm"></tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div
+          id="pagination"
+          class="bg-surface-light dark:bg-surface-dark px-6 py-4 flex items-center justify-between border-t border-slate-200 dark:border-slate-800"
+        >
+          <span
+            id="paginationInfo"
+            class="text-xs text-slate-500 dark:text-slate-400"
+            >Carregando...</span
+          >
+          <div class="flex gap-1">
+            <button
+              class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs text-slate-500 hover:bg-slate-50 dark:hover:bg-white/5 transition"
+            >
+              Anterior
+            </button>
+            <button
+              class="px-3 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs text-slate-500 hover:bg-slate-50 dark:hover:bg-white/5 transition"
+            >
+              Proximo
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
