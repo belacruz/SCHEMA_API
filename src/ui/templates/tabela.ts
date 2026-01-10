@@ -79,7 +79,7 @@ const tabelaRow = (item: TransacaoNorm, index: number): TemplateResult => {
             >${icon}</span
           >
           ${item.formaDePagamento === "Cartão de Crédito"
-            ? "Cartao"
+            ? "Cartão"
             : item.formaDePagamento}
         </div>
       </td>
